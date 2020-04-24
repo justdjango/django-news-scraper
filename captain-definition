@@ -1,0 +1,19 @@
+{
+    "schemaVersion": 2,
+    "dockerfileLines": [
+        "FROM library/python:3.7.4",
+        "RUN pip install pipenv --upgrade",
+        "RUN mkdir -p /usr/src/app",
+        "WORKDIR /usr/src/app",
+
+        "COPY ./Pipfile /usr/src/app",
+        "RUN pipenv lock --requirements > requirements.txt",
+        "RUN pip install -r requirements.txt",
+
+        "COPY . /usr/src/app",
+
+        "EXPOSE 80",
+        "COPY ./runserver.sh /usr/local/bin/",
+        "CMD [\"sh\", \"runserver.sh\"]"
+    ]
+}

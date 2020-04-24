@@ -1,0 +1,22 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+autopep8 = "==1.4.4"
+pep8 = "==1.7.1"
+pycodestyle = "==2.5.0"
+
+[packages]
+pytz = "==2018.5"
+sqlparse = "==0.2.4"
+Django = "==3.0.5"
+django-environ = "*"
+boto3 = "*"
+django-storages = "*"
+psycopg2-binary = "*"
+gunicorn = "*"
+
+[requires]
+python_version = "3.7"
