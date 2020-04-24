@@ -1,0 +1,13 @@
+{
+  "python.pythonPath": "/Users/matthewfreire/.pyenv/versions/3.7.4/bin/python",
+  "editor.formatOnSave": true,
+  "python.linting.pycodestyleEnabled": true,
+  "python.linting.pylintEnabled": true,
+  "python.linting.pylintPath": "pylint",
+  "python.linting.pylintArgs": ["W0614", "--load-plugins", "pylint_django"],
+  "python.venvPath": "/Users/matthewfreire/.local/share/virtualenvs/best_django_project-QMucY7ix/bin/python",
+  "python.linting.pycodestyleArgs": ["--ignore=E501"],
+  "files.exclude": {
+    "**/*.pyc": true
+  }
+}

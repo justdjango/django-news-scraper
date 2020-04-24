@@ -18,6 +18,8 @@ django-storages = "*"
 psycopg2-binary = "*"
 gunicorn = "*"
 celery = "*"
+django-celery-beat = "*"
+redis = "*"
 
 [requires]
 python_version = "3.7"

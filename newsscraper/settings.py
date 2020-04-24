@@ -15,6 +15,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    'django_celery_beat',
+
     'core'
 ]
 
@@ -28,7 +31,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware'
 ]
 
-ROOT_URLCONF = 'demo.urls'
+ROOT_URLCONF = 'newsscraper.urls'
 
 TEMPLATES = [
     {
@@ -57,6 +60,9 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static_files')]
 STATIC_ROOT = os.path.join(BASE_DIR, 'static_root')
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# Celery
+CELERY_BROKER_URL = 'redis://localhost:6379'
 
 DATABASES = {
     "default": {
@@ -92,13 +98,13 @@ if DEBUG is False:
 
     STATIC_LOCATION = 'static'
     STATIC_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{STATIC_LOCATION}/'
-    STATICFILES_STORAGE = 'demo.storage_backends.StaticStorage'
+    STATICFILES_STORAGE = 'newsscraper.storage_backends.StaticStorage'
 
     # s3 public media settings
 
     PUBLIC_MEDIA_LOCATION = 'media'
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{PUBLIC_MEDIA_LOCATION}/'
-    DEFAULT_FILE_STORAGE = 'demo.storage_backends.PublicMediaStorage'
+    DEFAULT_FILE_STORAGE = 'newsscraper.storage_backends.PublicMediaStorage'
 
     STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 
