@@ -143,3 +143,5 @@ cython_debug/
 !.gitignore
 !.travis.yml
 /.vscode\
+
+dump.rdb
