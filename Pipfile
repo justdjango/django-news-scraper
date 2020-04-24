@@ -17,6 +17,7 @@ boto3 = "*"
 django-storages = "*"
 psycopg2-binary = "*"
 gunicorn = "*"
+celery = "*"
 
 [requires]
 python_version = "3.7"
