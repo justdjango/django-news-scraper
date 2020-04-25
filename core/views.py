@@ -1,6 +1,5 @@
 from django.views import generic
 from .models import NewsItem, ScrapeRecord
-from .tasks import scrape_site_async
 
 
 class ScrapeRecordListView(generic.ListView):
