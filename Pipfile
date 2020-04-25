@@ -20,6 +20,8 @@ gunicorn = "*"
 celery = "*"
 django-celery-beat = "*"
 redis = "*"
+requests = "*"
+beautifulsoup4 = "*"
 
 [requires]
 python_version = "3.7"
