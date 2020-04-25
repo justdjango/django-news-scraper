@@ -23,6 +23,7 @@ redis = "*"
 requests = "*"
 beautifulsoup4 = "*"
 selenium = "*"
+flower = "*"
 
 [requires]
 python_version = "3.7"
