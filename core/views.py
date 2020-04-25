@@ -1,5 +1,12 @@
 from django.views import generic
-from .models import NewsItem
+from .models import NewsItem, ScrapeRecord
+from .tasks import scrape_site_async
+
+
+class ScrapeRecordListView(generic.ListView):
+    template_name = 'scrape_history.html'
+    paginate_by = 20
+    model = ScrapeRecord
 
 
 class NewsItemListView(generic.ListView):

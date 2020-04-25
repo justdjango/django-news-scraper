@@ -7,7 +7,9 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.common.exceptions import TimeoutException
 
-from .models import NewsItem
+from django.utils import timezone
+
+from .models import NewsItem, ScrapeRecord
 
 
 def scrape(url):
@@ -33,6 +35,10 @@ def scrape(url):
         browser.quit()
 
     try:
+        record = ScrapeRecord.objects.create(
+            finish_time=timezone.now()
+        )
+
         # find all the elements with this class -> single-article single-article-small-pic
         article_elements = browser.find_elements_by_xpath(
             "//div[@class='single-article single-article-small-pic']")
@@ -77,6 +83,11 @@ def scrape(url):
                         publish_date=new_item_date
                     )
 
-    except:
+        record.finish_time = timezone.now()
+        record.finished = True
+        record.save()
+
+    except Exception as e:
+        raise e
         pass
         # send ourselves email
