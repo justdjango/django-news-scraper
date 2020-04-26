@@ -63,12 +63,12 @@ MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
 # Celery
-CELERY_BROKER_URL = 'redis://localhost:6379'
+CELERY_BROKER_URL = env("CELERY_BROKER_URL")
 # CELERY_TIMEZONE = 'UTC'
 CELERY_BEAT_SCHEDULE = {
     "SendScheduledEmails": {
         'task': 'core.tasks.scrape_dev_to',
-        'schedule': 10  # crontab(minute="*/30")  # Every 30 mins
+        'schedule': crontab(minute="*/2")  # Every 2 mins
     }
 }
 
@@ -81,7 +81,7 @@ DATABASES = {
 
 if DEBUG is False:
 
-    ALLOWED_HOSTS = ['django.mycaprover.justdjango.com']
+    ALLOWED_HOSTS = [env("HOST")]
 
     SESSION_COOKIE_SECURE = True
     SECURE_BROWSER_XSS_FILTER = True
@@ -89,8 +89,8 @@ if DEBUG is False:
     SECURE_HSTS_INCLUDE_SUBDOMAINS = True
     SECURE_HSTS_SECONDS = 31536000
     SECURE_REDIRECT_EXEMPT = []
-    # SECURE_SSL_REDIRECT = True
-    # SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
+    SECURE_SSL_REDIRECT = True
+    SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
 
     # aws settings
 
