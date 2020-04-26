@@ -15,6 +15,9 @@ from .models import NewsItem, ScrapeRecord
 def scrape(url):
     options = webdriver.ChromeOptions()
     options.add_argument(" - incognito")
+    options.add_argument("--headless")
+    options.add_argument("--disable-dev-shm-usage")
+    options.add_argument("--no-sandbox")
 
     browser = webdriver.Chrome(
         executable_path='/usr/local/bin/chromedriver', chrome_options=options)
