@@ -17,7 +17,7 @@ def scrape(url):
     options.add_argument(" - incognito")
 
     browser = webdriver.Chrome(
-        executable_path='./chromedriver', chrome_options=options)
+        executable_path='/usr/local/bin/chromedriver', chrome_options=options)
 
     browser.get(url)
 
