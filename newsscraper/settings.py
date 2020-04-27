@@ -66,10 +66,10 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CELERY_BROKER_URL = env("CELERY_BROKER_URL")
 # CELERY_TIMEZONE = 'UTC'
 CELERY_BEAT_SCHEDULE = {
-    "SendScheduledEmails": {
-        'task': 'core.tasks.scrape_dev_to',
-        'schedule': crontab(minute="*/2")  # Every 2 mins
-    }
+    #     "SendScheduledEmails": {
+    #         'task': 'core.tasks.scrape_dev_to',
+    #         'schedule': crontab(minute="*/2")  # Every 2 mins
+    #     }
 }
 
 DATABASES = {
